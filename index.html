@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    
+  </head>
+  <body>
+      <div class="add-new-article">
+          <div class="add-new-article-field">
+              <label>Id</label>
+              <input id="article-id"/>
+          </div>
 
-    <script src="index.js"></script>
-</body>
+          <div class="add-new-article-field">
+            <label>Title</label>
+            <input id="article-title"/>
+        </div>
+
+        <div class="add-new-article-field">
+            <label>Content</label>
+            <input id="article-content"/>
+        </div>
+
+        <button id="add-article-button">Add Article</button>
+
+        
+
+      </div>
+    <button id="get-data">Get Data</button>
+    <div class="article-list">No data</div>
+    <script src="getData.js"></script>
+    <script src="addData.js"></script>
+  </body>
 </html>
