@@ -1,4 +1,5 @@
 console.log("JavaScript - AJAX");
+console.log("CRUD Operation - Read");
 // The scope of this lesson is to fetch some data from a server and use it to dynamically render data to the user
 // We show the data to the user by creating new html elements and ad them to the existing html objects
 
@@ -7,18 +8,11 @@ console.log("JavaScript - AJAX");
 const articleListHtml = document.querySelector(".article-list");
 
 // we will get/fetch the data when user click on a button
-document.getElementById("get-data").addEventListener("click", function () {
-  // "fetch" is a JavaScript function that tells the browser the make a request the specified address in the argument
-  fetch("https://simple-json-server-scit.herokuapp.com/posts")
-    // "this .then" is responsible for linking a callback function to the event trigger by the browser when the server responds back
-    .then(handleFetchResponse)
-    // "this .then" is responsible for linking a callback function to the event trigger by the parser of the body of the response
-    // we need to parse the response so we can transform it from a string in form of a JSON to an actual JavaScript value, which in this case is a list of objects
-    .then(useJSONResponse);
-});
+document.getElementById("get-data").addEventListener("click", getData);
 
 function getData() {
-    fetch("https://simple-json-server-scit.herokuapp.com/posts")
+  // "fetch" is a JavaScript function that tells the browser the make a request the specified address in the argument
+  fetch("https://simple-json-server-scit.herokuapp.com/posts")
     // "this .then" is responsible for linking a callback function to the event trigger by the browser when the server responds back
     .then(handleFetchResponse)
     // "this .then" is responsible for linking a callback function to the event trigger by the parser of the body of the response
@@ -59,16 +53,9 @@ function renderArticle(articleData) {
   const article = document.createElement("div");
   const articleTitle = document.createElement("h3");
   const articleContent = document.createElement("p");
-  const removeButton = document.createElement("button");
 
   article.appendChild(articleTitle);
   article.appendChild(articleContent);
-  article.appendChild(removeButton);
-
-  removeButton.addEventListener("click", function(){
-    console.log("remove article");
-    article.remove();
-  });
 
   articleListHtml.appendChild(article);
 
@@ -76,5 +63,4 @@ function renderArticle(articleData) {
   // we use the "articleData" as data source
   articleTitle.innerText = articleData.title;
   articleContent.innerText = articleData.content;
-  removeButton.innerText = "remove article";
 }
