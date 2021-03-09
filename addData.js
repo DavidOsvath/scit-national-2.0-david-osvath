@@ -5,8 +5,7 @@ console.log("CRUD Operation - Create step");
 // in this course we attempt to add new data on the server using its API
 // in order for us to understand how the server work we need to take a look at the library from which the server is built
 // our server is built with "JSON Server" and its documentation is "https://github.com/typicode/json-server"
-// our main server page can be found at "https://simple-json-server-scit.herokuapp.com/" 
-
+// our main server page can be found at "https://simple-json-server-scit.herokuapp.com/"
 
 // for us to put data on the server we need to wait for the user do click on add button
 document
@@ -37,7 +36,7 @@ document
       // in this case because we need to send data as well as creating a new article we need to use the POST method
       // in addition to the url argument we need to specify the request object as well
       // the acutal data the we want to send to the server we must put it into the body key of the request object
-      // because we can only send text over http we need to transform the JavaScript values into a string by using JSON.stringify 
+      // because we can only send text over http we need to transform the JavaScript values into a string by using JSON.stringify
 
       fetch("https://simple-json-server-scit.herokuapp.com/posts", {
         method: "POST",
