@@ -1,31 +1,27 @@
 console.log("JavaScript - AJAX");
-// The scope of this lesson is to fetch some data from a server and use it to dynamically render data to the user
-// We show the data to the user by creating new html elements and ad them to the existing html objects
-
-// "articleListHtml" will hold the new elements we will create for showing data
-// we need an existing reference so we can bind to it the new elements
 const articleListHtml = document.querySelector(".article-list");
 
-// we will get/fetch the data when user click on a button
-document.getElementById("get-data").addEventListener("click", function () {
-  // "fetch" is a JavaScript function that tells the browser the make a request the specified address in the argument
-  fetch("https://simple-json-server-scit.herokuapp.com/posts")
-    // "this .then" is responsible for linking a callback function to the event trigger by the browser when the server responds back
-    .then(handleFetchResponse)
-    // "this .then" is responsible for linking a callback function to the event trigger by the parser of the body of the response
-    // we need to parse the response so we can transform it from a string in form of a JSON to an actual JavaScript value, which in this case is a list of objects
-    .then(useJSONResponse);
-});
+document.getElementById("get-data").addEventListener("click", () => {
+    fetchPosts();
+}); 
 
-// because "handleFetchResponse" is used as a callback function in the first then of "fetch" the parameter will be the response from the servers
+
+  
+  
+  
+function fetchPosts(){
+    fetch("https://simple-json-server-scit.herokuapp.com/posts").then(handleFetchResponse).then(useJSONResponse);
+}
+function fetchComments(){
+    fetch("https://simple-json-server-scit.herokuapp.com/comments").then(handleFetchResponse).then(renderComments);
+ } // DAVID ADDED CODE HERE 
+
+
 function handleFetchResponse(response) {
-  console.log("response", response);
-  // .json() is responsible for parsing in an asynchronous way the body of the server response, from a JSON string to a JavaScript value
   return response.json();
 }
 
-// because  "useJSONResponse" is used in the second then of "fetch" the parameter will be the actual JavaScript value parsed from the body of the server
-// only in this function we can actually use the data to render dynamically something
+
 function useJSONResponse(json) {
   console.log(json);
 
@@ -50,9 +46,12 @@ function renderArticle(articleData) {
   const article = document.createElement("div");
   const articleTitle = document.createElement("h3");
   const articleContent = document.createElement("p");
+  const commentsList = document.createElement("div");
+  commentsList.classList.add("comment-list");
 
   article.appendChild(articleTitle);
   article.appendChild(articleContent);
+  article.appendChild(commentsList);
 
   articleListHtml.appendChild(article);
 
@@ -60,4 +59,39 @@ function renderArticle(articleData) {
   // we use the "articleData" as data source
   articleTitle.innerText = articleData.title;
   articleContent.innerText = articleData.content;
+
+
+
+
+  fetch(`https://simple-json-server-scit.herokuapp.com/comments?postId=${articleData.id}`).then(handleFetchResponse).then(renderComments);
+
 }
+
+
+function renderComments(commentList){
+    for (const commentData of commentList) {
+        console.log(commentData);
+        renderComment(commentData);}
+}
+
+function renderComment(commentData){
+    const comment = document.createElement("div");
+    const commentAuthor = document.createElement("h4");
+    const commentContent = document.createElement("p");
+
+    comment.appendChild(commentAuthor);
+    comment.appendChild(commentContent);
+
+    commentContent.classList.add("comment-content");
+    commentAuthor.classList.add("comment-user");
+    comment.classList.add("comment");
+    comment.style.paddingLeft = "20px"; 
+
+    const allArticles = document.getElementsByClassName("comment-list");
+    allArticles[commentData.postId].appendChild(comment);
+
+    commentAuthor.innerText = commentData.username;
+    commentContent.innerText = commentData.content;
+}
+
+
