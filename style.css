@@ -1,0 +1,54 @@
+header {
+    background-color: red;
+    text-align: center;
+    height:60px;
+    width:100%;
+    font-size:40px;
+    position:relative;
+}
+
+#note {
+    height:60px;
+    position:absolute;
+    margin-top:-60px;
+    
+}
+
+input.new-notes {
+    margin-top:20px;
+    width:500px;
+    height:30px;
+    
+}
+
+
+
+
+.checkbox--unchecked {
+    height:30px;
+    vertical-align: bottom;
+}
+
+.checkbox--unchecked:hover {
+    content: url("plus.svg");
+}
+
+.toDoItem {
+    display:flex;
+}
+
+.toDoItem input {
+    margin-top:20px;
+}
+
+.delete-button {
+    margin-top:15px;
+    border: 1px solid red;
+    width:20px;
+    content: text;
+    height:20px;
+}
+
+.delete-button::before {
+    content:"X";
+}
