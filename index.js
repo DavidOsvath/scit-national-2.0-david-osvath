@@ -37,7 +37,7 @@ if (counter === 0) {
         todo:payload
         }
         fetch("https://simple-json-server-scit.herokuapp.com/todo", {
-  method: "PUSH",
+  method: "POST",
   headers: {
       'Content-Type': 'application/json'
     },
