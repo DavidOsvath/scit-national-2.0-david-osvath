@@ -1,0 +1,43 @@
+#generate-random-spaceship {
+    height: 100px;
+    width: 100px;
+    display:block;
+}
+
+.spaceship {
+    height:50px;
+    width:50px;
+    position:absolute;
+    display:flex;
+    
+    
+    
+    /* transition:all 0.3s ease; */
+}
+
+ /* .spaceship--started {
+    animation: spaceshipAnimation 0.3s ease;
+} 
+
+
+ @keyframes spaceshipAnimation { 
+
+     0%{transform: scale(1)}
+    25%{transform: scale(1.2)}
+    50%{transform: scale(1.3)}
+    75%{transform: scale(1.2)}
+    100%{transform: scale(1)} 
+} */
+
+.facingLeft{
+
+}
+.facingRight{
+
+}
+.facingUp{
+
+}
+.facingDown{
+    
+}
