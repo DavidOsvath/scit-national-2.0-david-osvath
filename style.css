@@ -11,6 +11,14 @@ body {
   justify-content: center;
 }
 
+#start {
+    position:absolute;
+    top:15px;
+    left:15px;
+    width: 400px;
+    height: 100px;
+}
+
 #game-scene {
   width: 1000px;
   height: 500px;
@@ -45,4 +53,12 @@ body {
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+  .warningMessage {
+      position: absolute;
+      top:15px;
+      left:15px;
+      font-size: 30px;
+      width: 700px;
   }

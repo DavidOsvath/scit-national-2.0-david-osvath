@@ -104,7 +104,7 @@ class ObstacleFactory {
 
   moveObstacles() {
     for (const obstacle of this.obstacles) {
-      obstacle.moveLeft(5);
+      obstacle.moveLeft(param);
     }
   }
 }
@@ -198,51 +198,79 @@ let currentObstacle = {};                                         //DECLARED ALL
 let count = 0;
 let keyUpPress = false;
 let keyDownPress = false;
-audio.themeSong.play();
 let stageRate = 15;
+let firstWarning = true;
+let secondWarning = false;
+let thirdWarning = false;
+let param = 5;
 
-let gameLoop = setInterval(() => {
+
+document.getElementById("start").addEventListener("click", () => {
+  audio.themeSong.play();
+  document.getElementById("start").remove();
+  let gameLoop = setInterval(() => {
   
-  setTimeout(()=>{
-    stageRate = 10;
-    obstacleFactory.moveObstacles(10);
-  },20000);
+    if (firstWarning){
+    setTimeout(()=>{    
+      const warning = document.createElement("p");
+      warning.classList.add("warningMessage");
+      warning.innerText = "Is it just me or did the blocks speed up?";
+      document.body.appendChild(warning);
+      stageRate = 10;
+      param = 10;
+      secondWarning = true;
+    },20000); 
+    firstWarning = false;}
+   
+    
+    if(secondWarning){
+      const warning = document.querySelector(".warningMessage");
+    setTimeout(()=>{
+      warning.innerText = "Okay, okay. Let's stop playing now, we've got to go back to work :)";
+      stageRate = 7;
+      param = 15;
+      thirdWarning = true;
+    },20000); 
+    secondWarning = false;}
   
-  setTimeout(()=>{
-    stageRate = 7;
-    obstacleFactory.moveObstacles(15);
-  },40000);
 
-  setTimeout(()=>{
-    stageRate = 3;
-    obstacleFactory.moveObstacles(25);
-  },55000);
-
-  if (keyUpPress) player.moveUp();
-  if (keyDownPress) player.moveDown();
-
-  if (count % stageRate === 0) obstacleFactory.createObstacle();
- 
-  obstacleFactory.moveObstacles();
-
-  if (collisionDetection(player, obstacleFactory.obstacles)) {
-    if(health.lives > 1) {health.loseHealth(); audio.hit.play(); }
-    else {
-      audio.hit.play();
-      health.loseHealth();
-      audio.themeSong.pause();
-      audio.gameOver.play();
-      setTimeout(() =>{
-      clearInterval(gameLoop);
-      alert(`GAME OVER   ---  YOU REACHED ${count} POINTS`);
-      window.location = "/";}, 110);       //ADDED TIMEOUT FOR GAME END SO THE LAST HEART ICON CAN DISSAPEAR FIRST
+    if(thirdWarning){
+      const warning = document.querySelector(".warningMessage");
+    setTimeout(()=>{
+      warning.innerText = "HOW ARE YOU STILL ALIVE";
+      warning.style.size = "100px";
+      stageRate = 3;
+      param = 20;
+    },20000);} 
+  
+    if (keyUpPress) player.moveUp();
+    if (keyDownPress) player.moveDown();
+  
+    if (count % stageRate === 0) obstacleFactory.createObstacle();
+   
+    obstacleFactory.moveObstacles();
+  
+    if (collisionDetection(player, obstacleFactory.obstacles)) {
+      if(health.lives > 1) {health.loseHealth(); audio.hit.play(); }
+      else {
+        audio.hit.play();
+        health.loseHealth();
+        audio.themeSong.pause();
+        audio.gameOver.play();
+        setTimeout(() =>{
+        clearInterval(gameLoop);
+        alert(`GAME OVER   ---  YOU REACHED ${count} POINTS`);
+        location.reload();}, 110);       //ADDED TIMEOUT FOR GAME END SO THE LAST HEART ICON CAN DISSAPEAR FIRST
+      }
     }
-  }
-  obstacleFactory.destroyObstacles();
+    obstacleFactory.destroyObstacles();
+  
+    count++;
+    points.innerHTML = count;                // ADDED POINTS FOR FUN
+  }, 25); 
+});
 
-  count++;
-  points.innerHTML = count;                // ADDED POINTS FOR FUN
-}, 25); 
+
 
 
 
