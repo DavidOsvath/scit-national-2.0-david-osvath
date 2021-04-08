@@ -8,7 +8,7 @@ if (!localStorage.getItem("name") || !localStorage.getItem("password")) {
 document.getElementById("logout").addEventListener("click", () => {
   localStorage.removeItem("name");
   localStorage.removeItem("password");
-  window.location = "/";
+  window.location = "\login.html";
 });
  
 const containerBreeds = document.getElementById("breeds");

@@ -10,6 +10,6 @@ document.getElementById("login").addEventListener("click", () => {
   if (name && password === PASSWORD_CHECK) {
     localStorage.setItem("name", name);
     localStorage.setItem("password", password);
-    window.location = "/";
+    window.location = "\index.html";
   }
 });
