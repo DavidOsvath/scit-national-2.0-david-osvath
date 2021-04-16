@@ -1,4 +1,8 @@
+import { Greeter } from "./src/Greeter";
+
 console.log("JavaScript - Dogs App");
+
+Greeter();
 
 
 if (!localStorage.getItem("name") || !localStorage.getItem("password")) {
