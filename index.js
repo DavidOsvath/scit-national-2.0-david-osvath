@@ -104,6 +104,6 @@ function checkStatus(json) {
 }                                                                   // setting status to see if we can click on the forward button or not
                                                                     // in case we leave the page, while being at the end of the picture album
 
-
+                                                                    //CLEAN START
 
 
