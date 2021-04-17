@@ -1,7 +1,8 @@
 import "jquery";
+import { setBackwardButton, setForwardButton } from "./src/ButtonManager";
 
 import { Greeter } from "./src/Greeter";
-import { HANDLE_AND_CHECK_STATUS, renderPage, SET_IMAGE_NEW_BREED, SET_PAGE_TO_LAST_VISITED, pageNumber, setLocalStorageBreed, count, decreaseCount, increaseCount, statusToTrue, setPageNumber, statusChecker } from "./src/manageURL";
+import {  renderPage,  SET_PAGE_TO_LAST_VISITED, pageNumber, setLocalStorageBreed, setPageNumber } from "./src/manageURL";
 import { maximize, canMaximize } from "./src/Maximizer";     //added maximize picture module
 
 console.log("JavaScript - Dogs App");
@@ -25,10 +26,6 @@ document.getElementById("logout").addEventListener("click", () => {
 });
  
 
-
-
-console.log(localStorage.dogName);
-
 if(localStorage.pageNumber) {
   setPageNumber();
   pageNumber.innerText = `${localStorage.pageNumber}`;
@@ -40,32 +37,12 @@ if(localStorage.dogName) {
 
 
 
-const forwardButton = document.getElementById("forward");
-const backwardButton = document.getElementById("backward");
-
 renderPage();                                      // render page on opening the HTML 
 
 
-backwardButton.addEventListener("click", () => {
-  if (count>0) {
-    statusToTrue();
-    decreaseCount();
-    localStorage.pageNumber = `${count + 1}`;
-    pageNumber.innerText = `${count + 1}`
-    SET_IMAGE_NEW_BREED();
-  }
-});
+setBackwardButton();
 
-forwardButton.addEventListener("click", () => { 
-  HANDLE_AND_CHECK_STATUS();
-  if(statusChecker){
-    increaseCount();
-  localStorage.pageNumber = `${count + 1}`;
-  pageNumber.innerText = `${count + 1}`
-  SET_IMAGE_NEW_BREED();
-  } 
-});                                                                                                               // backward $ forward button functionality
-
+setForwardButton();
 
 
                                                                                                              // Creating the html components to render the page
