@@ -51,7 +51,7 @@ setForwardButton();
 //CLEAN START
 
 const maximizeButton = $("#maximize");
-maximizeButton.click(() => {maximize(canMaximize)});
+maximizeButton.click(() => {maximize(canMaximize)}); //added third party library (jquery) and another module to manage the maximize button
 
 
 
