@@ -30,7 +30,7 @@ export let statusChecker = HANDLE_AND_CHECK_STATUS();   // checking status of ne
                                                                                                                     // in case we ran out of pictures to show
 
 export function renderPage() {
-    console.log("Hi"); fetch("https://dog.ceo/api/breeds/list/all").then(handleJson).then(useJson); }
+     fetch("https://dog.ceo/api/breeds/list/all").then(handleJson).then(useJson); }
 
 export function SET_PAGE_TO_LAST_VISITED() { 
     fetch(`https://dog.ceo/api/breed/${currentBreed}/images`).then(handleJson).then(handleImage);
@@ -77,6 +77,7 @@ export function setLocalStorageBreed() {
             count = 0;
             breedType.style.textDecoration = "underline";
             currentBreed = breed;
+            statusChecker = HANDLE_AND_CHECK_STATUS();
              SET_IMAGE_NEW_BREED();
              
       });
