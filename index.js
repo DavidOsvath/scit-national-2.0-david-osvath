@@ -1,8 +1,17 @@
+import "jquery";
+
 import { Greeter } from "./src/Greeter";
+import { HANDLE_AND_CHECK_STATUS, renderPage, SET_IMAGE_NEW_BREED, SET_PAGE_TO_LAST_VISITED, pageNumber, setLocalStorageBreed, count, decreaseCount, increaseCount, statusToTrue, setPageNumber, statusChecker } from "./src/manageURL";
+import { maximize, canMaximize } from "./src/Maximizer";     //added maximize picture module
 
 console.log("JavaScript - Dogs App");
 
 Greeter();
+
+// const bigBox = $(".clickme");
+// bigBox.click(() =>{
+//   console.log("clicked");
+// });
 
 
 if (!localStorage.getItem("name") || !localStorage.getItem("password")) {
@@ -15,99 +24,61 @@ document.getElementById("logout").addEventListener("click", () => {
   window.location = "\login.html";
 });
  
-const containerBreeds = document.getElementById("breeds");
-const imageBox = document.getElementById("breed-image");
-const pageNumber = document.getElementById("page-number");
-let currentBreed = "";
-let count = 0;
+
+
+
+console.log(localStorage.dogName);
+
 if(localStorage.pageNumber) {
-  count = localStorage.pageNumber - 1;
+  setPageNumber();
   pageNumber.innerText = `${localStorage.pageNumber}`;
 }
 if(localStorage.dogName) {
-  currentBreed = localStorage.dogName;
-  fetch(`https://dog.ceo/api/breed/${currentBreed}/images`).then(handleJson).then(handleImage);}   //Setting page to last visited breed/pageNumber
+      setLocalStorageBreed();
+      SET_PAGE_TO_LAST_VISITED();
+       }   //Setting page to last visited breed/pageNumber
+
+
 
 const forwardButton = document.getElementById("forward");
 const backwardButton = document.getElementById("backward");
 
-let statusChecker = fetch(`https://dog.ceo/api/breed/${currentBreed}/images`).then(handleJson).then(checkStatus);   // checking status of nextPage, to prevent from getting error
-                                                                                                                    // in case we ran out of pictures to show
+renderPage();                                      // render page on opening the HTML 
+
 
 backwardButton.addEventListener("click", () => {
   if (count>0) {
-    statusChecker = true;
-    count--;
+    statusToTrue();
+    decreaseCount();
     localStorage.pageNumber = `${count + 1}`;
-    document.getElementById("page-number").innerText = `${count + 1}`
-    fetch(`https://dog.ceo/api/breed/${currentBreed}/images`).then(handleJson).then(handleImage);
+    pageNumber.innerText = `${count + 1}`
+    SET_IMAGE_NEW_BREED();
   }
 });
 
 forwardButton.addEventListener("click", () => { 
-  fetch(`https://dog.ceo/api/breed/${currentBreed}/images`).then(handleJson).then(checkStatus);
+  HANDLE_AND_CHECK_STATUS();
   if(statusChecker){
-  count++;
+    increaseCount();
   localStorage.pageNumber = `${count + 1}`;
-  document.getElementById("page-number").innerText = `${count + 1}`
-  fetch(`https://dog.ceo/api/breed/${currentBreed}/images`).then(handleJson).then(handleImage);
+  pageNumber.innerText = `${count + 1}`
+  SET_IMAGE_NEW_BREED();
   } 
 });                                                                                                               // backward $ forward button functionality
 
-fetch("https://dog.ceo/api/breeds/list/all").then(handleJson).then(useJson);                                      // render page on opening the HTML 
 
-function handleJson(json){
-  return json.json();
-}
 
-function useJson(breeds) {
-  console.log(Object.keys(breeds.message));
-   for ( const breed of Object.keys(breeds.message)) {
-     
-     const breedType = document.createElement("p");
-     breedType.classList.add("dogs");
-     breedType.style.width = "50px";
-     if(breed === currentBreed) {breedType.style.textDecoration = "underline";}
+                                                                                                             // Creating the html components to render the page
 
-    //  breedType.addEventListener("mouseover", () => {
-    //    breedType.style.textDecoration = "underline";
-    //  });
 
-    //  breedType.addEventListener("mouseout", () => {
-    //   breedType.style.textDecoration = "";
-    // });
-    breedType.style.cursor = "pointer";
-    breedType.addEventListener("click", () => {
-      const dogs = document.getElementsByClassName("dogs");
-      for (const item of dogs){ item.style.textDecoration = "";}
+//CLEAN START
 
-          localStorage.dogName = breed;         
-          document.getElementById("page-number").innerText = "1";
-          localStorage.pageNumber = "1";
-          count = 0;
-          breedType.style.textDecoration = "underline";
-          currentBreed = breed;
-           fetch(`https://dog.ceo/api/breed/${currentBreed}/images`).then(handleJson).then(handleImage);
-           
-    });
+const maximizeButton = $("#maximize");
+maximizeButton.click(() => {maximize(canMaximize)});
 
-     breedType.innerText = breed;
-     containerBreeds.appendChild(breedType);
-  }
-}                                                                                                               // Creating the html components to render the page
 
-function handleImage(json) {
-  imageBox.src = json.message[count];
-}
 
-function checkStatus(json) {
-  if(json.message[count+1]) {statusChecker = true} else
-  {
-  statusChecker = false;
-  }
-}                                                                   // setting status to see if we can click on the forward button or not
-                                                                    // in case we leave the page, while being at the end of the picture album
 
-                                                                    //CLEAN START
+
 
 
