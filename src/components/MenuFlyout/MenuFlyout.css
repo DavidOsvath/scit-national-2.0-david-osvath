@@ -1,0 +1,21 @@
+.menu-flyout {
+    position:absolute;
+    top:50px;
+    left:10px;
+    border: 2px solid black;
+    width:70px;
+    display:block;
+}
+
+.about {
+    border:1px solid black;
+}
+
+.tasks {
+    border:1px solid black;
+}
+
+.menu-flyout p {
+    margin-left:10px;
+}
+
