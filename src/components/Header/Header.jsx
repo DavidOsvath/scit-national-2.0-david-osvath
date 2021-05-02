@@ -5,7 +5,7 @@ export function Header() {
   return (
     <div className="app-header">
       <AppLogo />
-      <p className="app-header__title">To Do App</p>
+      <p className="app-header__title">Form Submission</p>
     </div>
   );
 }

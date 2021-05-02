@@ -1,0 +1,8 @@
+.send-button {
+    display:flex; 
+    justify-content: flex-end; 
+}
+
+.send-button button {
+    margin-top:10px;
+}

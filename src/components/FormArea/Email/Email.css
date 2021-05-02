@@ -1,0 +1,11 @@
+.email-field {
+    display:flex;
+    align-items: center;
+    
+    
+    
+}
+.email-field input{
+    margin-left:54px;
+    height:20px;
+}

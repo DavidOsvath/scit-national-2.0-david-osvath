@@ -1,0 +1,11 @@
+.last-name {
+    display:flex;
+    align-items: center;
+    
+    
+    
+}
+.last-name input{
+    margin-left:14px;
+    height:20px;
+}
