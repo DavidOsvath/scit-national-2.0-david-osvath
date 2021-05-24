@@ -1,4 +1,4 @@
-import todoSvg from "./to-do-list.svg";
+import todoSvg from "./list.svg";
 import "./AppLogo.css";
 
 export function AppLogo() {

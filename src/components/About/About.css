@@ -1,0 +1,11 @@
+.aboutButton {
+    width:100px;
+    height:49px;
+    border:1px solid black;
+    
+}
+
+.aboutButton p {
+    
+    text-align: center;
+}

@@ -1,0 +1,13 @@
+.contactButton {
+    margin-right:50px;  
+    right:0px;
+    width:100px;
+    height:49px;
+    border:1px solid black;
+    
+}
+
+.contactButton p {
+    
+    text-align: center;
+}
