@@ -13,21 +13,32 @@ video {
     width: 100%;
     display:flex;
     flex-direction: column;
+    justify-content: center;
     align-items:center;
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
     object-fit: contain;
 }
 
-.main-container h1,p{
+.main-container h1 {
     color:white;
+    font-size: 100px;
+    margin-top: 0px;
+}
+
+.main-container p {
+    color:white;
+    font-size: 30px;
+    margin-top: -10px;
+    margin-bottom:10px;
+    
 }
 
 .info-container {
     padding-left:100px;
     align-items: center;
-    width:500px;
+    width:1200px;
     background:rgba(0,0,0,0.7);
-    border-radius:100%;
+    border-radius:0;
     
 
 }

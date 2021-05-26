@@ -9,7 +9,7 @@ function MainSection() {
         <div className="main-container"> 
             <video src={binary} autoPlay loop muted />
             <div className="info-container">
-                    <h1>My name is David</h1>
+                    <h1>Osvath David</h1>
                     <p>Need a responsive website? I'm your guy</p>
                 <div className="main-btns">
                     <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">EMAIL</Button>
