@@ -23,6 +23,7 @@ video {
     color:white;
     font-size: 100px;
     margin-top: 0px;
+    margin-left:-500px;
 }
 
 .main-container p {
@@ -42,3 +43,63 @@ video {
     
 
 }
+
+.main-btns {
+    margin-top: 32px;
+}
+
+.main-btns .btn {
+    margin: 6px;
+}
+
+.fa-project-diagram {
+    margin-left:5px;
+}
+
+@media screen and (max-width: 960px) {
+    .info-container {
+        margin-left:300px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .main-container > h1 {
+        font-size: 70px;
+        margin-top: -150px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-container > h1 {
+        font-size: 50px;
+        margin-top: -100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info-container {
+        margin-left:500px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+     .info-container p{
+        font-size: 150%;
+        margin-left:20px;
+        margin-top:10px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .info-container h1{
+       font-size: 200%;
+       margin-left:-850px;
+       margin-top:10px;
+   }
+}
+
+@media screen and (max-width: 768px) {
+    .main-btns {
+        padding-left:10px;
+    }
+}
+

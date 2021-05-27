@@ -12,8 +12,8 @@ function MainSection() {
                     <h1>Osvath David</h1>
                     <p>Need a responsive website? I'm your guy</p>
                 <div className="main-btns">
-                    <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">EMAIL</Button>
-                    <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">My Projects <i className="far fa-play-circle" /></Button>
+                    <Button id={0} className="btns" buttonStyle="btn--outline" buttonSize="btn--large">EMAIL</Button>
+                    <Button id={1} className="btns" buttonStyle="btn--primary" buttonSize="btn--large">My Projects <i className="fas fa-project-diagram" /></Button>
                 </div>
             </div>
         </div>

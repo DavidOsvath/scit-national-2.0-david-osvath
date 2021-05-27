@@ -51,7 +51,7 @@ function Navbar() {
                         </li>
 
                         <li className="nav-item">
-                            <Link to="/products" className="nav-links" onClick={closeMobileMenu} >
+                            <Link to="/projects" className="nav-links" onClick={closeMobileMenu} >
                                 Projects
                             </Link>
                         </li>
@@ -63,7 +63,7 @@ function Navbar() {
                         </li>
                     </ul>
 
-                    {button && <Button buttonStyle="btn--outline">Contact</Button>}
+                    {button && <Button id={2} buttonStyle="btn--outline">Contact</Button>}          {/*if {button} is true it returns the visible button*/}
                 </div>
             </nav>
         </div>
