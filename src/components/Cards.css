@@ -1,6 +1,10 @@
 .cards {
     padding: 4rem;
-    background: #fff;
+    color:white;
+    background:#252e48;
+    top:200px;
+    left:200px;
+    background-color:rgba(8, 7, 7, 0.9);
   }
   
   h1 {
@@ -94,16 +98,11 @@
   }
   
   .cards-piece-text {
-    color: #252e48;
+    color: white;
     font-size: 18px;
     line-height: 24px;
   }
   
-  @media only screen and (min-width: 1200px) {
-    .content__blog__container {
-      width: 84%;
-    }
-  }
   
   @media only screen and (min-width: 1024px) {
     .cards-pieces {

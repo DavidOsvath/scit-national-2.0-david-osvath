@@ -6,6 +6,8 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Projects from "./components/pages/Projects";
 import Contact from "./components/pages/Contact";
+import Education from "./components/pages/Education";
+import Footer from './components/Footer';
  
 
 function App() {
@@ -16,9 +18,11 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
+          <Route path="/education" component={Education} />
           <Route path="/projects" component={Projects} />
           <Route path="/contact" component={Contact} />
         </Switch>
+        <Footer/>
       </Router>
     </div>
   );

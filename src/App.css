@@ -8,11 +8,12 @@
   .home,
   .about,
   .projects,
-  .contact {
+  .contact,
+  .education {
     display: flex;
     height: 90vh;
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content:center ;
     font-size: 3rem;
   }
   
@@ -26,38 +27,97 @@
     
     
   }
-  
-  .projects {
-    background-image: url('components/images/CodeBackground.jpeg');
+
+  .education {
+    background-image: url('components/images/educationBackground.jpg');
     background-position: center;
-    background-size: 100%;
+    background-size:cover;
+    background-position-y: -200px;
     background-repeat: no-repeat;
     color: #fff;
-    font-size: 300px;
-    -webkit-text-stroke: 7px black;
+    
+  }
+  
+  .projects {
+    position:relative;
+    background-image: url('components/images/CodeBackground.jpeg');
+    background-position: center;
+    background-size:100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 100px;
+    padding:20px;
+
+    
   }
   
   .contact {
+    display:flex;
     background-image: url('components/images/Headsetup.jpeg');
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
     color: #fff;
-    font-size: 200px;
-    -webkit-text-stroke: 7px black;
+    font-size: 50px;
   }
 
   .about-container {
     height:99%;
     width:99%;
+    position:absolute;
     background-color: rgba(0, 0, 0, 0.8);
-    font-size:50px;
+    padding-top:30px;
+    font-size:15px;
     padding-left:25px;
   }
 
   .about-container p{
-    font-size:40px; 
+    font-size:30px; 
     font-family:Georgia, 'Times New Roman', Times, serif;
     -webkit-text-stroke: 0.6px rgb(3, 0, 48);
+    padding-left:300px;
+    padding-right:300px;
+    padding-top:100px;
     
   }
+  .about-container h1{
+    padding-top:200px;
+  }
+
+  .title {
+  position:absolute;
+  left:10px;
+  top:100px;
+  -webkit-text-stroke: 7px black;
+}
+
+.educationTitle {
+  position:absolute;
+  top:100px;
+  left:50px;
+  font-size:25px;
+}
+
+.educationTitle p{
+  margin-bottom:50px;
+  margin-top:100px;
+}
+
+/* .projectsTitle {
+  border:1px solid red;
+  background-color:rgba(0,0,0,0.4);
+  position:relative;
+  top:-360px;
+  font-size:0;
+  width:100%;
+}
+
+@media screen and (max-width: 768px) {
+  .projectsTitle {
+    border:1px solid red;
+    background-color:rgba(0,0,0,0.4);
+    position:relative;
+    top:-300px;
+    font-size:35px;
+  }
+} */

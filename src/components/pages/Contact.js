@@ -1,6 +1,10 @@
 import React from "react";
 import "../../App.css" ;
+import ContactComponent from "../contactComponent/ContactComponent";
 
 export default function Contact() {
-    return (<h1 className="contact">CONTACT</h1>);
+    return (
+    <div className="contact">
+    <ContactComponent />
+    </div>);
 }

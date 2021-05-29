@@ -27,7 +27,7 @@
   }
   
   .navbar-logo {
-      width:200px;
+      width:300px;
     color: #fff;
     justify-self: start;
     margin-left: 20px;
@@ -45,7 +45,7 @@
   
   .nav-menu {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(5, auto);
     grid-gap: 10px;
     list-style: none;
     text-align: center;
@@ -163,6 +163,12 @@
       background: #fff;
       color: #242424;
       transition: 250ms;
+    }
+
+    .logo-image {
+      position:absolute;
+      top:0;
+      left:0;
     }
   }
  

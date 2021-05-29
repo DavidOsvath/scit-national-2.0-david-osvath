@@ -27,7 +27,7 @@ function Cards() {
                         <CardPiece
                              src={blockGame}
                              text={`Block Mania! Dodge all the red blocks or face their wrath! Current Highscore: 2200`}
-                             label="Game"
+                             label="Block Mania"
                              path="http://nerdcore.eu/osvathborosdavid/BlockMania/"
                              />
                     </ul>

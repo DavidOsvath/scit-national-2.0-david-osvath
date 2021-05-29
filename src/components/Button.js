@@ -6,7 +6,7 @@ const STYLES = ["btn--primary", "btn--outline"];
 
 const SIZES = ["btn--medium", "btn--large"];
 
-const LINKS = ["/Contact", "/Projects", "/Contact"];
+const LINKS = ["/Contact", "/Projects", "/Contact", "/Education"];
 
 
 export const Button = ({children, type, onClick, buttonStyle, buttonSize, id}) =>  {
