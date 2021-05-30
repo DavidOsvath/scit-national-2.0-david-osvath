@@ -4,24 +4,49 @@
     padding: 0;
     font-family: 'PT Sans', sans-serif;
   }
+
+  .App {
+    position: relative;
+    min-height: 90vh;
+    padding-bottom:2.5rem;
+
+  }
   
   .home,
   .about,
   .projects,
   .contact,
-  .education {
+  .education,
+  .hobbies {
+    background-color:black;
     display: flex;
-    height: 90vh;
+    position:relative;
+    height: 100vh;
     align-items:center;
     justify-content:center ;
     font-size: 3rem;
   }
+
+   .hobbies-container{
+    height:980px;
+    width:1000px;
+    padding-top:100px;
+    padding-left:0;
+    color:white;
+    font-size:30px;
+  } 
+
+  .hobbies-container img{
+    margin-left:90px;
+  }
+
+
   
   .about {
     background-image: url('components/images/FullSetup.jpeg');
     background-position: center;
     background-size:cover;
-    background-position-y: -300px;
+    background-position-y: -200px;
     background-repeat: no-repeat;
     color: #fff;
     
@@ -29,6 +54,8 @@
   }
 
   .education {
+    position:relative;
+    background-color:rgb(3, 18, 19);
     background-image: url('components/images/educationBackground.jpg');
     background-position: center;
     background-size:cover;
@@ -62,26 +89,28 @@
   }
 
   .about-container {
-    height:99%;
-    width:99%;
+    height:700px;
+    width:1200px;
+    margin-top:-100px;
     position:absolute;
     background-color: rgba(0, 0, 0, 0.8);
     padding-top:30px;
     font-size:15px;
     padding-left:25px;
+    min-height: 50px;
   }
 
   .about-container p{
     font-size:30px; 
     font-family:Georgia, 'Times New Roman', Times, serif;
     -webkit-text-stroke: 0.6px rgb(3, 0, 48);
-    padding-left:300px;
-    padding-right:300px;
+    padding-left:100px;
+    padding-right:100px;
     padding-top:100px;
     
   }
   .about-container h1{
-    padding-top:200px;
+    padding-top:100px;
   }
 
   .title {
@@ -103,21 +132,68 @@
   margin-top:100px;
 }
 
-/* .projectsTitle {
-  border:1px solid red;
-  background-color:rgba(0,0,0,0.4);
-  position:relative;
-  top:-360px;
-  font-size:0;
-  width:100%;
-}
+
+
+
+
 
 @media screen and (max-width: 768px) {
-  .projectsTitle {
-    border:1px solid red;
-    background-color:rgba(0,0,0,0.4);
-    position:relative;
-    top:-300px;
+  .about-container p,h1{
+    font-size:25px; 
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    -webkit-text-stroke: 0.6px rgb(3, 0, 48);
+    margin-left:200px;
+    margin-right:500px;
+    padding-right:100;
+    padding-left:300px;
+    padding-top:10px;
+    
+  }
+
+  .about-container {
+    height:700px;
+    width:1500px;
+    position:absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top:30px;
+    font-size:15px;
+    padding-left:25px;
+    min-height: 50px;
+  }
+
+  .educationTitle h1{
+    position:absolute;
+    top:-80px;
+    left:-400px;
     font-size:35px;
   }
-} */
+  
+  .educationTitle p{
+    margin-bottom:50px;
+    margin-top:20px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .hobbies-container {
+    width:600px;
+    margin-left:-100px;
+    }
+
+  .hobbies-container h1{
+    margin-left:0px;
+  }
+  .hobbies-container p{
+         font-size:20px;
+         margin-top:10px;
+         margin-left:130px;
+         padding-right:10px;
+  } 
+  .hobbies-container img{
+    height:300px;
+    width:600px;
+  }
+}
+
+
+

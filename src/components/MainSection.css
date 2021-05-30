@@ -78,6 +78,7 @@ video {
 
 @media screen and (max-width: 768px) {
     .info-container {
+        margin-top:-10px;
         margin-left:500px;
     }
 }
@@ -91,8 +92,8 @@ video {
 }
 @media screen and (max-width: 768px) {
     .info-container h1{
-       font-size: 200%;
-       margin-left:-850px;
+       font-size: 30px;
+       margin-left:-550px;
        margin-top:10px;
    }
 }

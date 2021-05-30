@@ -4,6 +4,7 @@ import "./Cards.css";
 import dogProject from "./dogProject.png"
 import flippingGame from "./FlippingGame.png"
 import blockGame from "./BlockGame.png"
+import drumKit from "./drums.jpg"
 
 function Cards() {
     return(
@@ -29,6 +30,12 @@ function Cards() {
                              text={`Block Mania! Dodge all the red blocks or face their wrath! Current Highscore: 2200`}
                              label="Block Mania"
                              path="http://nerdcore.eu/osvathborosdavid/BlockMania/"
+                             />
+                        <CardPiece
+                             src={drumKit}
+                             text={`In the mood to blow off some steam? Try this virtual drum kit, but careful not to break the keyboard!`}
+                             label="Drum Kit"
+                             path="http://nerdcore.eu/osvathborosdavid/DrumKit/js%20drum%20kit.html"
                              />
                     </ul>
                 </div>
